@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script defer src="main.js"></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+    <!-- /javaScript/ -->
+</head>
+<body>
+    <div class="contanier">
+        <header>
+            <nav>
+                <div class="logo">
+                   <a href="home.html"><h2>prayerTime</h2></a>
+                </div>
+                <ul>
+                    <li><a href="#choseLocation">chose location</a></li>
+                    <li class="getLocation" onclick="getMyLocation()">get my location</li>
+                </ul>
+            </nav>
+        </header>
+        <section>
+            <div class="location">
+                <p id="prayerLocationTime">prayer times in <Span id="cityLocation">morocco</Span> <i class="fa-sharp fa-solid fa-location-dot"></i></p>
+            </div>
+            <div class="info">
+                <div class="citys">
+                    <div class="citys-time">
+                        <p>prayer times </p>
+                        <p id="date">22 dhul qadah , 1444 hijri</p>
+                    </div>
+                    <div class="tableOfTimes">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="city">city</th>
+                                    <th>fajr</th>
+                                    <th>sunrise</th>
+                                    <th>dhuhr</th>
+                                    <th>asr</th>
+                                    <th>maghrib</th>
+                                    <th>isha</th>
+
+                                </tr>
+                            </thead>
+                            
+                            <tbody id="tbody">
+                                <tr>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="choseLocation" class="choseLocation">
+                <div class="head">
+                    <p>chose a location</p>
+                </div>
+                <div class="location-country">
+                    <select id="countryDropDown">
+                        <option class="CountryOptions">Saudi Arabia</option>
+                    </select>
+
+                    <select id="cityDropdown">
+                        <option>Riyadh</option>
+                        <option>Jeddah</option>
+                        <option>Mecca</option>
+                        <option>Medina</option>
+                        <option>Dammam</option>
+                    </select>
+
+                    <input type="submit" value="find time" id="btn" onclick="showPrayerTimeByCity(countryDropDown.value, cityDropDwon.value)">
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
