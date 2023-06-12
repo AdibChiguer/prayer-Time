@@ -31,6 +31,7 @@ let btn = document.getElementById('btn');
 let tbody = document.getElementById('tbody');
 let table = '';
 
+
 // show the counties in the html
 function showCounties(){
     islamicCountries.forEach((islamicCountry)=>{
@@ -60,10 +61,11 @@ countryDropDown.addEventListener('change' , showCity)
 
 function showPrayerTimeByCity(country , city){
     table = '';
-    axios.get(`http://api.aladhan.com/v1/timingsByCity?city=${city}&country=${country}`)
+    fetch(`http://api.aladhan.com/v1/timingsByCity?city=${city}&country=${country}`)
+        .then((response) =>response.json())
         .then((response)=>{
-            let timing = response.data.data.timings;
-            let date = response.data.data.date.hijri;
+            let timing = response.data.timings;
+            let date = response.data.date.hijri;
             table += `<tr>
                         <td class="city">${city}</td>
                         <td>${timing["Fajr"]} AM</td>
@@ -87,9 +89,10 @@ function getMyLocation(){
     const succes = (position) =>{
         const latitude = position.coords.latitude; 
         const longitude = position.coords.longitude; 
-        axios.get(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}`)
+        fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}`)
+            .then((response) =>response.json())
             .then((response)=>{
-                showPrayerTimeByCity(response.data["countryName"] , response.data["city"])
+                showPrayerTimeByCity(response["countryName"] , response["city"])
             })
     }
     const error = () => {
