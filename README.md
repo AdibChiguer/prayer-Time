@@ -5,7 +5,6 @@
 
 ### Links
 
-- Solution URL: [https://your-solution-url.com](https://your-solution-url.com)
 - Live Site URL: [https://adib-pop.github.io/Prayer-Time/](https://adib-pop.github.io/Prayer-Time/)
 
 ### Built with
