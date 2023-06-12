@@ -30,7 +30,6 @@ let cityOptions = '';
 let btn = document.getElementById('btn');
 let tbody = document.getElementById('tbody');
 let table = '';
-const axios = require('axios');
 
 // show the counties in the html
 function showCounties(){
